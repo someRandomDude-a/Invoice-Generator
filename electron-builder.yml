@@ -1,0 +1,63 @@
+appId: org.invoicestudio.desktop
+productName: Invoice Studio
+copyright: Copyright © 2026 Invoice Studio contributors
+asar: true
+npmRebuild: false
+electronDist: node_modules/electron/dist
+directories:
+  output: release
+files:
+  - desktop/main.cjs
+  - desktop/preload.cjs
+  - desktop/runtime.cjs
+  - package.json
+  - '!node_modules/**/*'
+extraResources:
+  - from: .packaging/resources
+    to: .
+    filter:
+      - '**/*'
+  - from: LICENSE
+    to: licenses/LICENSE.txt
+  - from: THIRD_PARTY_MODELS.md
+    to: licenses/THIRD_PARTY_MODELS.md
+artifactName: Invoice-Studio-${version}-${os}-${arch}.${ext}
+compression: normal
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: zip
+      arch: [x64]
+nsis:
+  artifactName: Invoice-Studio-${version}-windows-${arch}-Setup.${ext}
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  deleteAppDataOnUninstall: false
+  license: LICENSE
+mac:
+  target:
+    - target: dmg
+      arch: [arm64]
+    - target: zip
+      arch: [arm64]
+  category: public.app-category.business
+  hardenedRuntime: true
+  entitlements: packaging/entitlements.mac.plist
+  entitlementsInherit: packaging/entitlements.mac.plist
+  notarize: true
+dmg:
+  sign: false
+linux:
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: deb
+      arch: [x64]
+  category: Office
+  maintainer: Invoice Studio contributors
+  synopsis: Local invoice workspace with offline extraction
+  executableName: invoice-studio

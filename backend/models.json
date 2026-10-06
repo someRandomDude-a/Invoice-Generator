@@ -1,0 +1,9 @@
+{
+  "default": "convaiinnovations/laya",
+  "presets": [
+    {"name": "Laya · English (default)", "repo_id": "convaiinnovations/laya", "revision": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851", "adapter": "laya", "license": "Apache-2.0"},
+    {"name": "Laya · multilingual", "repo_id": "convaiinnovations/laya-multilingual", "revision": "e4e9ddf21a7b1903b7acffd8814ad4307bf63a67", "adapter": "laya", "license": "Apache-2.0"},
+    {"name": "Laya · typed decisions", "repo_id": "convaiinnovations/laya-typed-decisions", "revision": "1a793eb568e6718f15941d08f85432581df534e3", "adapter": "laya", "license": "Apache-2.0"},
+    {"name": "DistilBERT · extractive QA", "repo_id": "distilbert/distilbert-base-cased-distilled-squad", "revision": "main", "adapter": "qa", "license": "Apache-2.0"}
+  ]
+}

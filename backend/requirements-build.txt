@@ -1,0 +1,7 @@
+-r requirements-models.txt
+pyinstaller==6.22.3
+pip-licenses>=5,<6
+# Pin the release runtime; install the CPU torch wheel before this file on Windows/Linux.
+torch==2.8.0
+transformers==4.57.6
+numpy==2.2.6

@@ -1,0 +1,11 @@
+Invoice number: DEMO-2026-0901
+Customer name: Aarav Sharma
+Customer email: aarav@example.com
+Customer address: 24 Park Road, Bengaluru, Karnataka 560001
+Invoice date: 2026-09-15
+Due date: 2026-09-22
+Description: Comprehensive bike service
+Quantity: 1
+Unit rate: 1500
+Tax rate: 18
+Notes: Demo data only. Verify details before use.

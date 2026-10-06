@@ -1,0 +1,5 @@
+-r requirements.txt
+laya==0.3.28
+torch>=2.5,<3
+transformers>=4.55,<6
+safetensors>=0.5,<1

@@ -3,8 +3,18 @@ import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { checksumAssets } from './checksums.mjs';
 import { verifyInputs } from './stage-desktop.mjs';
+
+test('native build recipe exists and is not excluded from Git', async () => {
+  const root = fileURLToPath(new URL('..', import.meta.url));
+  await readFile(join(root, 'packaging/runner.spec'), 'utf8');
+  const result = spawnSync('git', ['check-ignore', '--no-index', '--quiet', 'packaging/runner.spec'], { cwd: root });
+  assert.equal(result.error, undefined);
+  assert.equal(result.status, 1, 'packaging/runner.spec must not be ignored: clean CI checkouts need this build recipe');
+});
 
 test('release checksums cover deliverables, not unpacked directories', async () => {
   const temp = await mkdtemp(join(tmpdir(), 'invoice-checksums-'));

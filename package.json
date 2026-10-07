@@ -17,9 +17,9 @@
     "desktop:install": "install-electron",
     "desktop:dev": "electron . --dev",
     "desktop:stage": "node scripts/stage-desktop.mjs",
-    "desktop:pack": "npm run build && npm run desktop:stage && electron-builder --dir --publish never",
+    "desktop:pack": "npm run build && npm run desktop:stage && node scripts/build-desktop.mjs --dir --publish never",
     "desktop:verify": "npm run desktop:pack && npm run desktop:smoke",
-    "desktop:dist": "npm run build && npm run desktop:stage && electron-builder --publish never",
+    "desktop:dist": "npm run build && npm run desktop:stage && node scripts/build-desktop.mjs --publish never",
     "desktop:release": "npm run desktop:dist && npm run desktop:smoke && npm run release:checksums",
     "desktop:smoke": "node scripts/smoke-desktop.mjs",
     "release:checksums": "node scripts/checksums.mjs"

@@ -41,6 +41,8 @@ Unsigned packages may trigger Windows SmartScreen and macOS Gatekeeper warnings.
 
 The final packaging step signs when certificates are supplied and notarizes macOS builds when Apple credentials are supplied. Certificate auto-discovery is disabled in CI. Signing/notarization failures block release; without secrets the build remains unsigned. Signing credentials are not used by pull-request tests.
 
+The npm packaging commands omit empty `CSC_LINK` / `WIN_CSC_LINK` variables before launching electron-builder. Missing optional GitHub secrets must not be interpreted as certificate file paths. Nonempty certificate settings and passwords are preserved; incorrect signing credentials still fail the build.
+
 ## Native local build
 
 Build on the same OS/architecture as the desired package, with Node **22.18+** and Python **3.11**. PyInstaller cannot cross-compile the Python runner.

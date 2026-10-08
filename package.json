@@ -1,7 +1,7 @@
 {
   "name": "invoice-studio",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
   "main": "desktop/main.cjs",
   "description": "Local invoice workspace with offline document extraction",
